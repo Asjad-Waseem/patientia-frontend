@@ -7,7 +7,6 @@ import { CommonStyle } from "utils/CommonStyle";
 import { LocaleEnglish, LocaleGerman } from "utils/LocaleEn";
 
 import { ToggleButtonComponent } from 'components/toggle-button/ToggleButton';
-import { Content } from 'components/content/Content';
 
 import Patientia_Logo from 'assets/images/patientia/Patientia_Logo.png';
 
@@ -38,10 +37,10 @@ patientiaLogo: {
 }
 });
 
-export const LandingPage: React.FC = () => {
+export const ThankYouPage: React.FC = () => {
 
   const darkModeStatus = useAppSelector(darkMode);
-  const currentLanguage = useAppSelector(language);
+  const currentLanguageSelected = useAppSelector(language);
 
   const classes = useStyles();
 
@@ -51,18 +50,18 @@ export const LandingPage: React.FC = () => {
         <div className={classes.landingHeader}>
         <img className={classes.patientiaLogo} src={Patientia_Logo} alt="patientia-logo" style={darkModeStatus ? {background: "#ffffff"} : {}} />
         <div className={classes.headerContainer}>
-        <Typography variant="h1" component="h1" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}> { currentLanguage === "English" ? LocaleEnglish.landing.heading : LocaleGerman.landing.heading }</Typography>
-        <Typography variant="h2" component="h2" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}>{ currentLanguage === "English" ? LocaleEnglish.landing.subHeading : LocaleGerman.landing.subHeading }</Typography>
+        <Typography variant="h1" component="h1" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}> { currentLanguageSelected === "English" ? LocaleEnglish.landing.heading : LocaleGerman.landing.heading }</Typography>
+        <Typography variant="h2" component="h2" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}>{ currentLanguageSelected === "English" ? LocaleEnglish.landing.subHeading : LocaleGerman.landing.subHeading }</Typography>
         </div>
 
         </div>
 
         <ToggleButtonComponent />
 
-        <Content />
-
+        <Typography variant="h3" component="h3" style={!darkModeStatus ? {color: "#000000", marginTop: "150px", marginBottom: "15px"} : {color: "#ffffff", marginTop: "150px", marginBottom: "15px"}}>{ currentLanguageSelected === "English" ? LocaleEnglish.thankYou.thankYouLine1 : LocaleGerman.thankYou.thankYouLine1 }</Typography>
+        <Typography variant="subtitle1" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}>{ currentLanguageSelected === "English" ? LocaleEnglish.thankYou.thankYouLine2 : LocaleGerman.thankYou.thankYouLine2 }</Typography>
     </div>
   );
 };
 
-export default LandingPage;
+export default ThankYouPage;

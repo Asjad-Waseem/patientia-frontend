@@ -12,6 +12,7 @@ import { Routes as PatientiaRoutes } from "utils/Routes";
 import { createTheme, ThemeProvider, responsiveFontSizes } from "@mui/material";
 
 import LandingPage from "pages/landing-page/LandingPage";
+import ThankYouPage from "pages/thank-you-page/ThankYouPage";
 
 const LinkBehavior = React.forwardRef<
   any,
@@ -23,6 +24,7 @@ const LinkBehavior = React.forwardRef<
 
 const headerFontFamily = "IBM Plex Mono, sans-serif";
 const subHeadingFontFamily = "Plus Jakarta Sans";
+const footerHeadingFontFamily = "Roboto"
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -60,9 +62,9 @@ const theme = responsiveFontSizes(
         fontWeight: 400,
       },
       overline: {
-        fontFamily: headerFontFamily,
+        fontFamily: footerHeadingFontFamily ,
         fontSize: 16,
-        fontWeight: 400,
+        fontWeight: 700,
       },
     },
   })
@@ -74,6 +76,7 @@ export const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path={PatientiaRoutes.landing} element={<LandingPage />} />
+          <Route path={PatientiaRoutes.thankyou} element={<ThankYouPage />} />
         </Routes>
       </Router>
     </ThemeProvider>
