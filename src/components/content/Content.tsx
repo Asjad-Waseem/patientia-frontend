@@ -83,7 +83,7 @@ const otherInfoCard = (
 
         <EnglishLanguage height={60} width="100px" style={{borderRadius: "10px"}} />
 
-        </Button>'
+        </Button>
 
         </div>
 
