@@ -10,6 +10,7 @@ import { ToggleButtonComponent } from 'components/toggle-button/ToggleButton';
 import { Content } from 'components/content/Content';
 
 import Patientia_Logo from 'assets/images/patientia/Patientia_Logo.png';
+import Patientia_Logo_White from 'assets/images/patientia/Patientia2_White_Logo.png';
 
 import { useAppSelector } from 'redux/hooks';
 import { darkMode, language } from 'redux/slices/landing/landingSlice';
@@ -49,7 +50,7 @@ export const LandingPage: React.FC = () => {
     <div className={classes.landingPage} style={!darkModeStatus ? {background: "#e9e8f1"} : {background: "#000000"}}>
 
         <div className={classes.landingHeader}>
-        <img className={classes.patientiaLogo} src={Patientia_Logo} alt="patientia-logo" style={darkModeStatus ? {background: "#ffffff"} : {}} />
+        <img className={classes.patientiaLogo} src={ !darkModeStatus ? Patientia_Logo : Patientia_Logo_White } alt="patientia-logo" />
         <div className={classes.headerContainer}>
         <Typography variant="h1" component="h1" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}> { currentLanguage === "English" ? LocaleEnglish.landing.heading : LocaleGerman.landing.heading }</Typography>
         <Typography variant="h2" component="h2" style={!darkModeStatus ? {color: "#000000"} : {color: "#ffffff"}}>{ currentLanguage === "English" ? LocaleEnglish.landing.subHeading : LocaleGerman.landing.subHeading }</Typography>
