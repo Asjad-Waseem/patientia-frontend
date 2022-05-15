@@ -2,6 +2,8 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
+import clsx from 'clsx';
+
 import { makeStyles } from "@mui/styles";
 
 import { CardComponent } from 'components/cards/Card';
@@ -43,7 +45,7 @@ const classes = useStyles();
       >
           <div className="card__content__wrapper" style={{marginRight: "200px !important"}}>
                   <CardComponent card={card} optionalClass={classes.contentStyle} />
-          </div>
+          </div>{}
         
       </Modal>
     </div>

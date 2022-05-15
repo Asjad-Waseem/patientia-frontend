@@ -22,14 +22,18 @@ import { ReactComponent as EnglishLanguage } from 'assets/images/Flag_of_the_Uni
 import Company_Logo from 'assets/images/company/Company_Logo.png';
 
 import { useAppSelector, useAppDispatch } from 'redux/hooks';
-import { callMessage, updateCallMessage, language, updateLanguage } from 'redux/slices/landing/landingSlice';
+import { darkMode, callMessage, updateCallMessage, language, updateLanguage } from 'redux/slices/landing/landingSlice';
 
 const useStyles = makeStyles({
 
     otherInfoPadding: {
            paddingBottom: "20px",
            marginBottom: "0px !important"
-        }
+        },
+    grayBg: {
+        backgroundColor: "rgba(12,12,12) !important",
+        color: "#ffffff !important"
+    }
    
 });
 
@@ -37,6 +41,7 @@ export const Content: React.FC = () => {
 
   const dispatch = useAppDispatch();
 
+  const darkModeStatus = useAppSelector(darkMode);
   const callMessageStatus = useAppSelector(callMessage);
   const currentLanguage = useAppSelector(language);
 
@@ -128,11 +133,12 @@ const modalCard = (
         <ModalComponent card={modalCard}
                         open={callMessageStatus}
                         onHandleOpen={ () => dispatch(updateCallMessage(true)) } 
-                        onHandleClose={ () => dispatch(updateCallMessage(false)) } />
+                        onHandleClose={ () => dispatch(updateCallMessage(false)) } 
+                        />
 
-<CardComponent card={infoCard}  />
-        <CardComponent card={statusCard}  />
-        <CardComponent card={otherInfoCard} optionalClass={classes.otherInfoPadding} />
+<CardComponent card={infoCard} cardBgClass={darkModeStatus ? classes.grayBg : null}  />
+        <CardComponent card={statusCard} cardBgClass={darkModeStatus ? classes.grayBg : null} />
+        <CardComponent card={otherInfoCard} optionalClass={clsx(classes.otherInfoPadding, darkModeStatus ? classes.grayBg : null)} cardBgClass={darkModeStatus ? classes.grayBg : null} />
 
         </>
   );

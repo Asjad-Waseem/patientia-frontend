@@ -47,7 +47,9 @@ export const LandingPage: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.landingPage} style={!darkModeStatus ? {background: "#e9e8f1"} : {background: "#000000"}}>
+    // <div className={classes.landingPage} style={!darkModeStatus ? {background: "#e9e8f1"} : {background: "#000000"}}>
+          <div className={classes.landingPage} style={!darkModeStatus ? {background: "#e9e8f1"} : {background: "rgba(32,32,32)"}}>
+
 
         <div className={classes.landingHeader}>
         <img className={classes.patientiaLogo} src={ !darkModeStatus ? Patientia_Logo : Patientia_Logo_White } alt="patientia-logo" />
