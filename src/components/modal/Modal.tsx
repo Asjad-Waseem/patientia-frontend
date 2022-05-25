@@ -23,6 +23,7 @@ const useStyles = makeStyles({
     left: "0",
     transform: "translate(0, -50%)",
     overflowY: "auto",
+    borderRadius: "10px"
   },
 });
 
