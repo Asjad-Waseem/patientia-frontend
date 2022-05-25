@@ -2,8 +2,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
-import clsx from 'clsx';
-
 import { makeStyles } from "@mui/styles";
 
 import { CardComponent } from 'components/cards/Card';
@@ -18,7 +16,7 @@ interface ModalProps {
 const useStyles = makeStyles({
 
     contentStyle: {
-            width: "calc(100% - 60px)",
+            width: "calc(100% - 40px)",
             maxWidth: '100vw',
             maxHeight: '100%',
             position: 'fixed',

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import axios from 'axios';
 
 import { makeStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
@@ -43,6 +45,16 @@ export const LandingPage: React.FC = () => {
 
   const darkModeStatus = useAppSelector(darkMode);
   const currentLanguage = useAppSelector(language);
+
+  useEffect(() => {
+    const axiosData = async () => {
+      const response = await axios(
+        "http://localhost:5000/api/Patientia?kID=2&reqKind=1&pin=F24F"
+      );
+      console.log(response);
+    };
+    axiosData();
+  }, []);
 
   const classes = useStyles();
 
