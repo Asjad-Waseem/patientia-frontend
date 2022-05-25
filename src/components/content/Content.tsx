@@ -25,16 +25,11 @@ import { useAppSelector, useAppDispatch } from 'redux/hooks';
 import { darkMode, callMessage, updateCallMessage, language, updateLanguage } from 'redux/slices/landing/landingSlice';
 
 const useStyles = makeStyles({
-
-    otherInfoPadding: {
-           paddingBottom: "20px",
-           marginBottom: "0px !important"
-        },
     grayBg: {
         backgroundColor: "rgba(12,12,12) !important",
-        color: "#ffffff !important"
+        color: "#ffffff !important",
+        borderRadius: "10px !important" 
     }
-   
 });
 
 export const Content: React.FC = () => {
@@ -136,9 +131,9 @@ const modalCard = (
                         onHandleClose={ () => dispatch(updateCallMessage(false)) } 
                         />
 
-<CardComponent card={infoCard} cardBgClass={darkModeStatus ? classes.grayBg : null}  />
-        <CardComponent card={statusCard} cardBgClass={darkModeStatus ? classes.grayBg : null} />
-        <CardComponent card={otherInfoCard} optionalClass={clsx(classes.otherInfoPadding, darkModeStatus ? classes.grayBg : null)} cardBgClass={darkModeStatus ? classes.grayBg : null} />
+        <CardComponent card={infoCard} optionalClass={darkModeStatus ? classes.grayBg : null}  />
+        <CardComponent card={statusCard} optionalClass={darkModeStatus ? classes.grayBg : null} />
+        <CardComponent card={otherInfoCard} optionalClass={darkModeStatus ? classes.grayBg : null} />
 
         </>
   );
