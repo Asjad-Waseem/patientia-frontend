@@ -53,7 +53,7 @@ const theme = responsiveFontSizes(
       },
       h3: {
         fontFamily: subHeadingFontFamily,
-        fontSize: 24,
+        fontSize: 22,
         fontWeight: 700,
       },
       subtitle1: {

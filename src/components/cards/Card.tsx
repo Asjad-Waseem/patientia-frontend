@@ -27,7 +27,7 @@ export const CardComponent: React.FC<CardProps> = ({
   const classes = useStyles();
   return (
     <Box className={clsx(classes.boxContainer, optionalClass)}>
-      <Card className={borderRadiusClass}>{card}</Card>
+      <Card className={clsx(borderRadiusClass, optionalClass)}>{card}</Card>
     </Box>
   );
 };
