@@ -130,7 +130,7 @@ export const Content: React.FC = () => {
 
   const otherInfoCard = (
     <React.Fragment>
-      <CardContent className="other__info">
+      <CardContent className={clsx("other__info", darkModeStatus ? "otherInfoMarginBottom" : null)}>
         <div className="common__container">
           <p className="overline__alt">
             {currentLanguage === "English"
