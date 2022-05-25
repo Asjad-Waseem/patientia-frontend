@@ -9,8 +9,7 @@ import clsx from "clsx";
 interface CardProps {
   card?: object;
   optionalClass?: string | null;
-  borderRadiusClass?: string | null;
-  extraClass? : string | null;
+  borderRadiusClass?: string;
 }
 
 var useStyles = makeStyles({
@@ -24,12 +23,11 @@ export const CardComponent: React.FC<CardProps> = ({
   card,
   optionalClass,
   borderRadiusClass,
-  extraClass
 }) => {
   const classes = useStyles();
   return (
     <Box className={clsx(classes.boxContainer, optionalClass)}>
-      <Card className={clsx(borderRadiusClass, extraClass)}>{card}</Card>
+      <Card className={borderRadiusClass}>{card}</Card>
     </Box>
   );
 };

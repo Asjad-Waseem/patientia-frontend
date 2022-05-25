@@ -38,10 +38,6 @@ const useStyles = makeStyles({
     backgroundColor: "rgba(12,12,12) !important",
     color: "#ffffff !important",
     borderRadius: "10px !important",
-  },
-  marginBottomClass: {
-    marginBottom: "0px !important",
-    paddingBottom: "20px !important"
   }
 });
 
@@ -268,7 +264,6 @@ export const Content: React.FC = () => {
         card={otherInfoCard}
         optionalClass={darkModeStatus ? classes.grayBg : null}
         borderRadiusClass={classes.borderRadiusClass}
-        extraClass={classes.marginBottomClass}
       />
     </>
   );
