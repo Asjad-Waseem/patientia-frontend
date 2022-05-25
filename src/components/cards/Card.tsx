@@ -8,7 +8,8 @@ import Card from "@mui/material/Card";
 import clsx from "clsx";
 interface CardProps {
   card?: object;
-  optionalClass?: string | null;
+  optionalClassBox?: string | null;
+  optionalClassCard?: string | null;
   borderRadiusClass?: string;
 }
 
@@ -21,13 +22,14 @@ var useStyles = makeStyles({
 
 export const CardComponent: React.FC<CardProps> = ({
   card,
-  optionalClass,
+  optionalClassBox,
+  optionalClassCard,
   borderRadiusClass,
 }) => {
   const classes = useStyles();
   return (
-    <Box className={clsx(classes.boxContainer, optionalClass)}>
-      <Card className={clsx(borderRadiusClass, optionalClass)}>{card}</Card>
+    <Box className={clsx(classes.boxContainer, optionalClassBox)}>
+      <Card className={clsx(borderRadiusClass, optionalClassCard)}>{card}</Card>
     </Box>
   );
 };

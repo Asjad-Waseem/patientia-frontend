@@ -48,7 +48,7 @@ export const ModalComponent: React.FC<ModalProps> = ({
           className="card__content__wrapper"
           style={{ marginRight: "200px !important" }}
         >
-          <CardComponent card={card} optionalClass={classes.contentStyle} />
+          <CardComponent card={card} optionalClassCard={classes.contentStyle} />
         </div>
         {}
       </Modal>

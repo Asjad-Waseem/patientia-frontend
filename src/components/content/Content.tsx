@@ -256,17 +256,20 @@ export const Content: React.FC = () => {
 
       <CardComponent
         card={infoCard}
-        optionalClass={darkModeStatus ? classes.grayBg : null}
+        optionalClassBox={darkModeStatus ? classes.grayBg : null}
+        optionalClassCard={darkModeStatus ? classes.grayBg : null}
         borderRadiusClass={classes.borderRadiusClass}
       />
       <CardComponent
         card={statusCard}
-        optionalClass={darkModeStatus ? classes.grayBg : null}
+        optionalClassBox={darkModeStatus ? classes.grayBg : null}
+        optionalClassCard={darkModeStatus ? classes.grayBg : null}
         borderRadiusClass={classes.borderRadiusClass}
       />
       <CardComponent
         card={otherInfoCard}
-        optionalClass={clsx(classes.otherInfoPadding, darkModeStatus ? classes.grayBg : null)}
+        optionalClassBox={clsx(classes.otherInfoPadding, darkModeStatus ? classes.grayBg : null)}
+        optionalClassCard={darkModeStatus ? classes.grayBg : null}
         borderRadiusClass={classes.borderRadiusClass}
       />
     </>
