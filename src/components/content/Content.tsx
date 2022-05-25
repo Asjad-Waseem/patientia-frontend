@@ -40,7 +40,6 @@ const useStyles = makeStyles({
     borderRadius: "10px !important",
   },
   otherInfoPadding: {
-    paddingBottom: "20px",
     marginBottom: "0px !important"
  }
 });
