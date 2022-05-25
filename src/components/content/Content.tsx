@@ -40,7 +40,8 @@ const useStyles = makeStyles({
     borderRadius: "10px !important",
   },
   marginBottomClass: {
-    marginBottom: "20px !important"
+    marginBottom: "20px !important",
+    paddingBottom: "20px"
   }
 });
 
