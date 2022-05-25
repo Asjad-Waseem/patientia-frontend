@@ -40,11 +40,11 @@ const useStyles = makeStyles({
     borderRadius: "10px !important",
   },
   otherInfoPadding: {
-    paddingBottom: "20px",
-    // marginBottom: "0px"
+    paddingBottom: "40px",
+    marginBottom: "0px"
  },
  normalModeMarginBottom: {
-   marginBottom: "0px"
+   paddingBottom: "20px !important"
  }
 
 });
