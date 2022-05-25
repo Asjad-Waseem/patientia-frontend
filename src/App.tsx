@@ -24,7 +24,7 @@ const LinkBehavior = React.forwardRef<
 
 const headerFontFamily = "IBM Plex Mono, sans-serif";
 const subHeadingFontFamily = "Plus Jakarta Sans";
-const footerHeadingFontFamily = "Roboto"
+const footerHeadingFontFamily = "Roboto";
 
 const theme = responsiveFontSizes(
   createTheme({
@@ -62,7 +62,7 @@ const theme = responsiveFontSizes(
         fontWeight: 400,
       },
       overline: {
-        fontFamily: footerHeadingFontFamily ,
+        fontFamily: footerHeadingFontFamily,
         fontSize: 16,
         fontWeight: 700,
       },

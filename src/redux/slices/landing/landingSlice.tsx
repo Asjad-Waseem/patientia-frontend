@@ -9,8 +9,8 @@ export type landingState = {
 
 const initialState: landingState = {
   darkmode: false,
-  language: 'English',
-  callMessage: false
+  language: "English",
+  callMessage: false,
 };
 
 export const landingSlice = createSlice({
@@ -18,7 +18,7 @@ export const landingSlice = createSlice({
   initialState,
   reducers: {
     updateDarkMode: (state) => {
-      state.darkmode = !state.darkmode
+      state.darkmode = !state.darkmode;
     },
     updateLanguage: (state, action: PayloadAction<string>) => {
       state.language = action.payload;

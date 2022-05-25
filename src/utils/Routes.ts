@@ -1,5 +1,4 @@
 export const Routes = {
-    landing: "/",
-    thankyou: "/thank-you"
+  landing: "/",
+  thankyou: "/thank-you",
 };
-  
