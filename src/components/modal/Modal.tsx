@@ -51,7 +51,6 @@ export const ModalComponent: React.FC<ModalProps> = ({
         >
           <CardComponent card={card} optionalClassBox={classes.contentStyle} />
         </div>
-        {}
       </Modal>
     </div>
   );
