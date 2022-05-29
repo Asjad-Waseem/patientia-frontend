@@ -50,7 +50,7 @@ export const LandingPage: React.FC = () => {
   useEffect(() => {
     const axiosData = async () => {
       const response = await axios(
-        "localhost:5000/api/Patientia/update?kID=1&pin=AB7B"
+        "http://localhost:5000/api/Patientia/update?kID=1&pin=AB7B"
       );
       dispatch(updateUserInfo(response.data));
     };

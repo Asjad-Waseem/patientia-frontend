@@ -77,7 +77,7 @@ export const Content: React.FC = () => {
     if(!isWaiting || callMessageStatus) {
     const axiosData = async () => {
       const response = await axios(
-        "localhost:5000/api/Patientia/callup?kID=1&pin=AB7B"
+        "http://localhost:5000/api/Patientia/callup?kID=1&pin=AB7B"
       );
       dispatch(updateUserCallUpInfo(response.data));
     };
