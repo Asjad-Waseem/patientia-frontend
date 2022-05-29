@@ -37,11 +37,14 @@ const useStyles = makeStyles({
   grayBg: {
     backgroundColor: "rgba(12,12,12) !important",
     color: "#ffffff !important",
-    borderRadius: "10px !important",
+    borderRadius: "10px !important"
   },
-  otherInfoPadding: {
+  otherInfoBoxAlignment: {
     paddingBottom: "20px",
     marginBottom: "0px"
+ },
+ otherInfoCardPadding: {
+   paddingBottom: "20px"
  }
 });
 
@@ -268,8 +271,8 @@ export const Content: React.FC = () => {
       />
       <CardComponent
         card={otherInfoCard}
-        optionalClassBox={clsx(classes.otherInfoPadding, darkModeStatus ? classes.grayBg : null)}
-        optionalClassCard={darkModeStatus ? classes.grayBg : null}
+        optionalClassBox={classes.otherInfoBoxAlignment}
+        optionalClassCard={darkModeStatus ? clsx(classes.grayBg, classes.otherInfoCardPadding) : null}
         borderRadiusClass={classes.borderRadiusClass}
       />
     </>

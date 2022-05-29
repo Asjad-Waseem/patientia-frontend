@@ -15,7 +15,7 @@ interface CardProps {
 
 var useStyles = makeStyles({
   boxContainer: {
-    margin: "20px",
+    margin: "25px",
     textAlign: "left",
   }
 });
