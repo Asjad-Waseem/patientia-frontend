@@ -68,7 +68,7 @@ export const Content: React.FC = () => {
 
   const isWaiting = userInfoData[0]?.isWaiting;
 
-  const isWaitingCallUp = userCallUpInfoData[0]?.isWaiting;
+  // const isWaitingCallUp = userCallUpInfoData[0]?.isWaiting;
   const advisorName =  userCallUpInfoData[0]?.beraterName;
   const callUpLocation = userCallUpInfoData[0]?.placeName;
   const callUpTime = userCallUpInfoData[0]?.callupTime;
