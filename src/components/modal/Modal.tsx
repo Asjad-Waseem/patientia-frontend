@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     maxHeight: "100%",
     position: "fixed",
     top: "50%",
-    left: "0",
+    left: "0px",
     transform: "translate(0, -50%)",
     overflowY: "auto",
     borderRadius: "10px"
@@ -48,7 +48,7 @@ export const ModalComponent: React.FC<ModalProps> = ({
           className="card__content__wrapper"
           style={{ marginRight: "200px !important" }}
         >
-          <CardComponent card={card} optionalClassCard={classes.contentStyle} />
+          <CardComponent card={card} optionalClassBox={classes.contentStyle} />
         </div>
         {}
       </Modal>
