@@ -4,7 +4,8 @@ import { Typography } from "@mui/material";
 
 interface CardInfoProps {
   infoHeading: string | null;
-  infoValue: string;
+  infoValue: number | string;
+  infoUnit?: string;
   infoValueColor?: string;
   marginBottom?: number;
 }
@@ -12,6 +13,7 @@ interface CardInfoProps {
 export const CardInfo: React.FC<CardInfoProps> = ({
   infoHeading,
   infoValue,
+  infoUnit,
   infoValueColor,
   marginBottom,
 }) => {
@@ -23,7 +25,7 @@ export const CardInfo: React.FC<CardInfoProps> = ({
         variant="h3"
         component="h3"
       >
-        {infoValue}
+        {infoValue} {infoUnit}
       </Typography>
     </>
   );

@@ -14,8 +14,8 @@ import { Content } from "components/content/Content";
 import Patientia_Logo from "assets/images/patientia/Patientia_Logo.png";
 import Patientia_Logo_White from "assets/images/patientia/Patientia2_White_Logo.png";
 
-import { useAppSelector } from "redux/hooks";
-import { darkMode, language } from "redux/slices/landing/landingSlice";
+import { useAppSelector, useAppDispatch } from "redux/hooks";
+import { darkMode, language, updateUserInfo } from "redux/slices/landing/landingSlice";
 
 const useStyles = makeStyles({
   landingPage: {
@@ -45,20 +45,21 @@ export const LandingPage: React.FC = () => {
   const darkModeStatus = useAppSelector(darkMode);
   const currentLanguage = useAppSelector(language);
 
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     const axiosData = async () => {
       const response = await axios(
-        "http://localhost:5000/api/Patientia/update?kID=8&pin=6B00"
+        "http://localhost:5000/api/Patientia/update?kID=1&pin=AB7B"
       );
-      console.log(response);
+      dispatch(updateUserInfo(response.data));
     };
     axiosData();
-  }, []);
+  }, [dispatch]);
 
   const classes = useStyles();
 
   return (
-    // <div className={classes.landingPage} style={!darkModeStatus ? {background: "#e9e8f1"} : {background: "#000000"}}>
     <div
       className={classes.landingPage}
       style={

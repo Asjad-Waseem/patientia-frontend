@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "assets/css/App.css";
 import "assets/css/CardConstants.css";
@@ -9,6 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import CardInfo from "components/card-info/CardInfo";
 
 import clsx from "clsx";
+import axios from 'axios';
 
 import { LocaleEnglish, LocaleGerman } from "utils/LocaleEn";
 
@@ -24,6 +25,9 @@ import Company_Logo from "assets/images/company/Company_Logo.png";
 import { useAppSelector, useAppDispatch } from "redux/hooks";
 import {
   darkMode,
+  userInfo,
+  userCallUpInfo,
+  updateUserCallUpInfo,
   callMessage,
   updateCallMessage,
   language,
@@ -52,8 +56,34 @@ export const Content: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const darkModeStatus = useAppSelector(darkMode);
-  const callMessageStatus = useAppSelector(callMessage);
   const currentLanguage = useAppSelector(language);
+  const userInfoData = useAppSelector(userInfo);
+  const userCallUpInfoData = useAppSelector(userCallUpInfo);
+  const callMessageStatus = useAppSelector(callMessage);
+
+  const userId = userInfoData[0].kundenID;
+  const queueName = userInfoData[0].warteName;
+  const avgWaitingTime = userInfoData[0].avgWaitTime;
+  const waitingSinceTime = userInfoData[0].timeWaiting;
+
+  const isWaiting = userInfoData[0].isWaiting;
+
+  const isWaitingCallUp = userCallUpInfoData[0].isWaiting;
+  const advisorName =  userCallUpInfoData[0].beraterName;
+  const callUpLocation = userCallUpInfoData[0].placeName;
+  const callUpTime = userCallUpInfoData[0].callupTime;
+
+  useEffect(() => {
+    if(!isWaiting || callMessageStatus) {
+    const axiosData = async () => {
+      const response = await axios(
+        "http://localhost:5000/api/Patientia/callup?kID=1&pin=AB7B"
+      );
+      dispatch(updateUserCallUpInfo(response.data));
+    };
+    axiosData();
+    }
+  }, [dispatch]);
 
   const classes = useStyles();
 
@@ -67,11 +97,7 @@ export const Content: React.FC = () => {
               ? LocaleEnglish.landing.numberHeading
               : LocaleGerman.landing.numberHeading
           }
-          infoValue={
-            currentLanguage === "English"
-              ? LocaleEnglish.landing.numberInfo
-              : LocaleGerman.landing.numberInfo
-          }
+          infoValue={userId}
         />
         <CardInfo
           marginBottom={2}
@@ -80,11 +106,7 @@ export const Content: React.FC = () => {
               ? LocaleEnglish.landing.queueHeading
               : LocaleGerman.landing.queueHeading
           }
-          infoValue={
-            currentLanguage === "English"
-              ? LocaleEnglish.landing.queueInfo
-              : LocaleGerman.landing.queueInfo
-          }
+          infoValue={queueName}
         />
         <CardInfo
           marginBottom={2}
@@ -93,11 +115,8 @@ export const Content: React.FC = () => {
               ? LocaleEnglish.landing.avgWaitingTimeHeading
               : LocaleGerman.landing.avgWaitingTimeHeading
           }
-          infoValue={
-            currentLanguage === "English"
-              ? LocaleEnglish.landing.avgWaitingTimeInfo
-              : LocaleGerman.landing.avgWaitingTimeInfo
-          }
+          infoValue={avgWaitingTime} 
+          infoUnit={currentLanguage === "English" ? LocaleEnglish.landing.timeUnit : LocaleGerman.landing.timeUnit}
         />
         <CardInfo
           infoHeading={
@@ -105,11 +124,8 @@ export const Content: React.FC = () => {
               ? LocaleEnglish.landing.waitingSinceHeading
               : LocaleGerman.landing.avgWaitingTimeHeading
           }
-          infoValue={
-            currentLanguage === "English"
-              ? LocaleEnglish.landing.waitingSinceInfo
-              : LocaleGerman.landing.waitingSinceInfo
-          }
+          infoValue={waitingSinceTime}
+          infoUnit={currentLanguage === "English" ? LocaleEnglish.landing.timeUnit : LocaleGerman.landing.timeUnit}
         />
       </CardContent>
     </React.Fragment>
@@ -125,7 +141,7 @@ export const Content: React.FC = () => {
               ? LocaleEnglish.landing.statusMessage
               : LocaleGerman.landing.statusMessage
           }
-          infoValue={currentLanguage === "English" ? "Waiting" : "Warten"}
+          infoValue={isWaiting && (currentLanguage === "English" ? LocaleEnglish.landing.waitingStatus : LocaleEnglish.landing.waitingStatus)}
         />
       </CardContent>
     </React.Fragment>
@@ -227,22 +243,16 @@ export const Content: React.FC = () => {
         <CardInfo
           marginBottom={2}
           infoHeading={LocaleEnglish.landing.advisor}
-          infoValue={
-            currentLanguage === "English" ? "Mr. Muller" : "Herr Müller"
-          }
+          infoValue={advisorName}
         />
         <CardInfo
           marginBottom={2}
           infoHeading={LocaleEnglish.landing.foundHere}
-          infoValue={
-            currentLanguage === "English"
-              ? "Service desk 6"
-              : "Serviceschalter 6"
-          }
+          infoValue={callUpLocation}
         />
         <CardInfo
           infoHeading={LocaleEnglish.landing.timeOfCalling}
-          infoValue={"14:41"}
+          infoValue={callUpTime}
         />
       </CardContent>
     </React.Fragment>
@@ -252,6 +262,7 @@ export const Content: React.FC = () => {
     <>
       <ModalComponent
         card={modalCard}
+        // open={!isWaiting}
         open={callMessageStatus}
         onHandleOpen={() => dispatch(updateCallMessage(true))}
         onHandleClose={() => dispatch(updateCallMessage(false))}

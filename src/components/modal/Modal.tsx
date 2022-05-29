@@ -9,13 +9,13 @@ import { CardComponent } from "components/cards/Card";
 interface ModalProps {
   card: any;
   open: boolean;
-  onHandleOpen: () => void;
-  onHandleClose: () => void;
+  onHandleOpen?: () => void;
+  onHandleClose?: () => void;
 }
 
 const useStyles = makeStyles({
   contentStyle: {
-    width: "calc(100% - 40px)",
+    width: "calc(100% - 50px)",
     maxWidth: "100vw",
     maxHeight: "100%",
     position: "fixed",
@@ -33,6 +33,7 @@ export const ModalComponent: React.FC<ModalProps> = ({
   onHandleOpen,
   onHandleClose,
 }) => {
+
   const classes = useStyles();
 
   return (
