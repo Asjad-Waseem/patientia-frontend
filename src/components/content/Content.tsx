@@ -61,17 +61,17 @@ export const Content: React.FC = () => {
   const userCallUpInfoData = useAppSelector(userCallUpInfo);
   const callMessageStatus = useAppSelector(callMessage);
 
-  const userId = userInfoData[0].kundenID;
-  const queueName = userInfoData[0].warteName;
-  const avgWaitingTime = userInfoData[0].avgWaitTime;
-  const waitingSinceTime = userInfoData[0].timeWaiting;
+  const userId = userInfoData[0]?.kundenID;
+  const queueName = userInfoData[0]?.warteName;
+  const avgWaitingTime = userInfoData[0]?.avgWaitTime;
+  const waitingSinceTime = userInfoData[0]?.timeWaiting;
 
-  const isWaiting = userInfoData[0].isWaiting;
+  const isWaiting = userInfoData[0]?.isWaiting;
 
-  const isWaitingCallUp = userCallUpInfoData[0].isWaiting;
-  const advisorName =  userCallUpInfoData[0].beraterName;
-  const callUpLocation = userCallUpInfoData[0].placeName;
-  const callUpTime = userCallUpInfoData[0].callupTime;
+  const isWaitingCallUp = userCallUpInfoData[0]?.isWaiting;
+  const advisorName =  userCallUpInfoData[0]?.beraterName;
+  const callUpLocation = userCallUpInfoData[0]?.placeName;
+  const callUpTime = userCallUpInfoData[0]?.callupTime;
 
   useEffect(() => {
     if(!isWaiting || callMessageStatus) {
